@@ -30,7 +30,7 @@ Reatime screen sharing web application..
 ## Features 
  -  Screen Sharing 
  -  Chatting 
- -  Vedio calling
+ -  Video calling
 ## Application Guide
 
 
