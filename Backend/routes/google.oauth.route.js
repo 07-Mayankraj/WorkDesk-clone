@@ -5,9 +5,9 @@ const googlelogin = express.Router();
 const passport = require("passport");
 const { UserModel } = require('../model/user.model');
 const session = require("express-session");
-
+const bcrypt = require("bcrypt");
 // nesseccry middlwars
-
+const { sendEmail } = require("../nodemailer/sendingEmails");
 googlelogin.use(
   session({
     secret: process.env.access_key,
@@ -32,6 +32,12 @@ passport.deserializeUser(function (obj, cb) {
 
 //oauth provider
 
+// genrate random number
+function generateOtp() {
+  return Math.floor(Math.random() * 9999);
+}
+
+
 passport.use(
   new GoogleStrategy(
     {
@@ -52,15 +58,27 @@ passport.use(
         const user = await UserModel.find({ email });
         // console.log(user);
         // if email not present
-        if (user.length === 0) {
-          const newUser = new UserModel({
-            name,
-            email,
-            password: process.env.authKey,
+        
+        if(user.length === 0){
+          const credentials = `${name}-`+generateOtp();
+          console.log(`sendingemail to ${email}`);
+          await sendEmail(email,credentials,name)
+
+          bcrypt.hash(credentials, 5, async (err, hash) => {
+            if (err) res.status(401).json({ "errow ": err.message });
+            else {
+              const newUser = new UserModel({
+                name,
+                email,
+                password: hash,
+              });
+              console.log("google : ",credentials);
+              await newUser.save();
+
+            }
           });
-          await newUser.save();
         }
-        // rediection function
+       
       } catch (error) {
         console.log(error.message);
       }
@@ -82,14 +100,20 @@ googlelogin.get(
   "/auth/google/callback",
   passport.authenticate("google", {
     failureRedirect:
-      "..",
+      "https://workdesk.netlify.app/",
   }),
   function (req, res) {
     // Successful authentication, redirect home.
     // console.log(req.user);
-    res.status(200).json({ GoogleUserData: req.user });
+    // res.redirect("http://127.0.0.1:5500/index.html")
+    // res.status(200).json({ GoogleUserData: req.user });
+    
+    const user = req.user;
+    const encodedUser = encodeURIComponent(JSON.stringify(user));
+    res.redirect(`https://workdesk.netlify.app/`);
   }
 );
+
 
 
 module.exports = {

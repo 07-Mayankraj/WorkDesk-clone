@@ -52,7 +52,7 @@ exports.login = async (req, res) => {
                 // send token in cookies
                 res.cookie("Normal_Token", Normal_Token, { httpOnly: true })
                 res.cookie("Refresh_Token", Refresh_Token, { httpOnly: true })
-                res.status(200).json({ "message": "Login successfully", Normal_Token, Refresh_Token })
+                res.status(200).json({ "message": "Login successfully", Normal_Token, Refresh_Token,name:UserData["name"],email,userid:UserData["_id"]})
             }
             else {
                 res.status(401).json({ "message": "error while login" });
@@ -100,3 +100,22 @@ exports.getUser = async (req, res) => {
             
         }
     }
+
+
+
+
+
+
+// function he(){
+
+//     bcrypt.compare("password", "$2b$05$Q0lP7ge0mc.WGKInJqYXz.bIvU67MkeG/zmLgXwo6e3nBgtWW3iJu", (err, result) => {
+//         if (result) {
+//             console.log(result);
+//         }
+//         else {
+//             console.log("nhi");
+//         }
+//     })
+// }
+
+// he()
