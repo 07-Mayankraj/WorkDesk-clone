@@ -132,13 +132,12 @@ You are good to go
 
 System_design
 
+
 ![Untitled Diagram](https://user-images.githubusercontent.com/87657007/225451422-8d5c05ca-5046-4c10-b890-1f02bbcd3d73.jpg)
 
-
-![Screenshot (517)](https://user-images.githubusercontent.com/87657007/221489018-3cf389a2-7493-48e5-8c97-a01702eb78ee.png)
-
-![Screenshot (518)](https://user-images.githubusercontent.com/87657007/221489038-db7b7ccd-86b1-441f-9ed9-aef1b489ea1f.png)
-![Screenshot (519)](https://user-images.githubusercontent.com/87657007/221489043-ed9eabae-9d14-4f4c-bff5-d4fb58404d49.png)
-![image](https://user-images.githubusercontent.com/109690823/230712966-a9333eae-c068-41f9-9ca1-f1346a75eb75.png)
+![image](https://user-images.githubusercontent.com/87657007/230957371-70c47d1a-fe86-4431-ba83-6f73acc68c42.png)
+![image](https://user-images.githubusercontent.com/87657007/230957688-bc009463-c988-4e93-b035-a0f172504957.png)
+![image](https://user-images.githubusercontent.com/87657007/230957711-afb14b7e-5039-480d-a1bb-e766ef23d07c.png)
+![image](https://user-images.githubusercontent.com/87657007/230957726-4e853b3c-7799-4703-b327-f75e20bc092c.png)
 ![Screenshot (520)](https://user-images.githubusercontent.com/87657007/221489051-e6a06137-e7a4-42a7-9e5f-000eb14d6358.png)
 ![Screenshot (522)](https://user-images.githubusercontent.com/87657007/221489062-46235239-d888-4ca6-89fe-d5a8e4e05a48.png)
