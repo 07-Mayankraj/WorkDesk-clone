@@ -3,7 +3,7 @@ const baseurl = "https://defiant-lime-kangaroo.cyclic.app/"
 import loading from "../components/loading.components.js";
 import hideLoading from "../components/hideLoading.components.js";
 
-
+// getting user data from the signup form
 const singupfrom = document.getElementById('register-form');
 singupfrom.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -16,7 +16,7 @@ singupfrom.addEventListener('submit',(e)=>{
 
     console.log(user);
 })
-
+// registering a new user 
 const register = async(user) =>{
     try {
 
@@ -30,12 +30,26 @@ const register = async(user) =>{
         let data = await res.json()
         if(data.err){
             alert(data.err)
+            await Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: `${data.err}`,
+                showConfirmButton: false,
+                timer: 2500
+              })
             hideLoading()
             window.location.reload();
 
         }
         else{
-            alert(user.name + " user created successfully")  
+            // alert("User"+ user.name + "  Created Successfully")  
+            await Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: `User ${user.name} Created Successfully`,
+                showConfirmButton: false,
+                timer: 2800
+              })
             window.location.href = "./login.html"  
         }
     } catch (error) {

@@ -17,9 +17,10 @@ let swiper = new Swiper(".mySwiper", {
 
 
 const userdata = JSON.parse(localStorage.getItem('userdata'))
-console.log(userdata);
+// console.log(userdata);
 if (userdata) {
-
+    // let logout=document.getElementById("logout");
+    // logout.add
     let hello = document.getElementById('hellouser')
     hello.innerText = "Hey " + userdata.name;
     hideLoading()
@@ -37,16 +38,16 @@ homelogo.addEventListener('click', () => {
     window.location.href = "../index.html"
 })
 
-function display_c() {
-    var refresh = 1000; // Refresh rate in milli seconds
-    let mytime = setTimeout('display_ct()', refresh)
-}
+// function display_c() {
+//     var refresh = 1000; // Refresh rate in milli seconds
+//     let mytime = setTimeout('display_ct()', refresh)
+// }
 
 
-function display_ct() {
-    var x = new Date()
-    var x1=x.toUTCString();// changing the display to UTC string
-    document.getElementById('ct').innerHTML = x1;
-    var tt=display_c();
-     }
-display_ct()
+// function display_ct() {
+//     var x = new Date()
+//     var x1=x.toUTCString();// changing the display to UTC string
+//     document.getElementById('ct').innerHTML = x1;
+//     var tt=display_c();
+//      }
+// display_ct()
